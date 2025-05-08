@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+// mantain index k, k = 0 (k có thể hiểu là vị trí tiếp theo sẵn sàng cho phần tử != val)
+// Sau đó loop qua, phần tử nào != val ta sẽ gán phần tử đó vào vị trí k, sau đó tăng k
+// => return k
+
 // https://leetcode.com/problems/remove-element/
 
 // [3,2,2,3] val = 3
