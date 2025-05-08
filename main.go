@@ -1,13 +1,31 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-func check(a []int) {
-	a = append(a, 1)
+func fib(c, quit chan int) {
+	x, y := 0, 1
+
+	for {
+		select {
+		case c <- x:
+			x, y = y, x+y
+		case <-quit:
+			fmt.Println("quit")
+			return
+		}
+	}
 }
 
 func main() {
-	for i := range 4 {
-		fmt.Println(i)
-	}
+	c := make(chan int)
+	quit := make(chan int)
+	go func() {
+		for i := 0; i < 2; i++ {
+			fmt.Println(<-c)
+		}
+		quit <- 0
+	}()
+	fib(c, quit)
 }
