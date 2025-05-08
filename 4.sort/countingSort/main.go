@@ -26,7 +26,7 @@ func countingSort(arr []int) {
 	}
 
 	fmt.Println(result)
-	// fmt.Println(countArr)
+	fmt.Println(countArr)
 }
 
 // https://www.geeksforgeeks.org/counting-sort/

@@ -70,12 +70,63 @@ func merge(arr []int, l, m, r int) {
 	}
 }
 
+func merge2(nums []int, l, m, r int) {
+	i, j := l, m+1
+	n := r - l + 1
+	k := 0
+	tmp := make([]int, n)
+	for i <= m && j <= r {
+		if nums[i] <= nums[j] {
+			tmp[k] = nums[i]
+			i++
+		} else {
+			tmp[k] = nums[j]
+			j++
+		}
+		k++
+	}
+
+	for i <= m {
+		tmp[k] = nums[i]
+		i++
+		k++
+	}
+	for j <= r {
+		tmp[k] = nums[j]
+		j++
+		k++
+	}
+
+	for i := 0; i < n; i++ {
+		nums[i+l] = tmp[i]
+	}
+}
+
+func merge3(nums []int, l, m, r int) {
+	n := r - l + 1
+	tmp := make([]int, n)
+	for k, i, j := 0, l, m+1; i <= m || j <= r; k++ {
+		if j > r || (i <= m && nums[i] <= nums[j]) {
+			tmp[k] = nums[i]
+			i++
+		} else {
+			tmp[k] = nums[j]
+			j++
+		}
+	}
+
+	for i := 0; i < n; i++ {
+		nums[i+l] = tmp[i]
+	}
+}
+
 // - Divide the array into 2 halves
 // - Sort each half
 // - Then merge the sorted halves back together
-// 	 + We have 2 pointers for the 2 arrays
-// 	 + We compare the 2 elements
-//	 + We put the smaller element into the result and increment the pointer
+//   - We have 2 pointers for the 2 arrays
+//   - We compare the 2 elements
+//   - We put the smaller element into the result and increment the pointer
+//
 // - This proccess is repeated until the entire array is sorted
 // TC: O(nlogn) SC: O(n)
 func main() {

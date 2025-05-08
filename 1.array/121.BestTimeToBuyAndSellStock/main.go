@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// https://leetcode.com/problems/remove-element/description/
+// https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
 // input: prices, prices[i]: stock on i day
 // maxProfit = prices[j] - prices[i], j: sell day, i: buy day, i < j
