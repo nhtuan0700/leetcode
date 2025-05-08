@@ -5,7 +5,7 @@ package main
 // at each cell, we will check row, column, sub-box
 // map[string][2]int{[row,column]}
 
-// lowerBound = (i // 3) * 2, upperBound = lowerBound + 2
+// lowerBound = (i // 3) * 3, upperBound = lowerBound + 2
 // invalid: i == row || j == column || lowerBound(i) <= row <= upperBound(i) || lowerBound(j) <= column <= upperBound(j)
 
 func isValidSudoku(board [][]byte) bool {

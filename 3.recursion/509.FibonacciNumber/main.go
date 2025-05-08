@@ -2,6 +2,7 @@ package main
 
 // https://leetcode.com/problems/fibonacci-number/submissions/1626008400/
 
+// TC: O(2^n): SC: O(n)
 func fib(n int) int {
 	if n < 2 {
 		return n
@@ -10,6 +11,7 @@ func fib(n int) int {
 	return fib(n-1) + fib(n-2)
 }
 
+// TC: O(n): SC: O(n)
 func fib2(n int) int {
 	fibos := []int{0, 1}
 	for i := 2; i <= n; i++ {
@@ -19,6 +21,7 @@ func fib2(n int) int {
 	return fibos[n]
 }
 
+// TC: O(n): SC: O(n)
 func fib3(n int) int {
 	if n < 2 {
 		return n
